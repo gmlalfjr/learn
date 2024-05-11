@@ -1,0 +1,16 @@
+name: Deploy Go App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on:
+    steps:
+      - name: checkout source
+        uses: actions/checkout@v4
+      - name: Create .env file
+        run: echo "PORT=${{ secrets.PORT }}" >> .env
+        
