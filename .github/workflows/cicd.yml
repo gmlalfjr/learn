@@ -23,13 +23,13 @@ jobs:
   deploy:
     needs: build
     runs-on: self-hosted
-      steps:
-        - name: Pull docker image
-          run: docker pull 081295333394/go-app:latest:latest
-        - name: Delete old container
-          run: docker rm -f go-app-container  
-        - name: Run docker container          
-          run: docker run -d -p 4040:4040 --name go-app-container 081295333394/go-app:latest
+    steps:
+      - name: Pull docker image
+        run: docker pull 081295333394/go-app:latest:latest
+      - name: Delete old container
+        run: docker rm -f go-app-container  
+      - name: Run docker container          
+        run: docker run -d -p 4040:4040 --name go-app-container 081295333394/go-app:latest
 
 
         
