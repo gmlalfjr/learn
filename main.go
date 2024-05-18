@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -15,7 +14,6 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		fmt.Println("Hello world")
 		return c.SendString("Hello, World!")
 	})
 
