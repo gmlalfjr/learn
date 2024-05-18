@@ -1,16 +1,20 @@
+# Gunakan image Alpine Linux dari Golang
 FROM golang:1.22.2-alpine
 
-WORKDIR app
+# Set working directory di dalam container
+WORKDIR /go/src/app
 
+# Salin file go.mod dan go.sum untuk mengoptimalkan caching
 COPY go.mod go.sum ./
 
-RUN go mod tidy 
+# Download dan instal dependensi menggunakan Go modules
+RUN go mod tidy
 
+# Salin kode aplikasi Go ke dalam container
 COPY . .
 
-# Compile aplikasi Go
-RUN go build -o main ./main.go
-RUN chmod +x main.go
-EXPOSE 4040
+# Kompilasi dan jalankan aplikasi Go
+CMD ["go", "run", "main.go"]
 
-CMD ["./main.go"]
+# Expose port 4040
+EXPOSE 4040
