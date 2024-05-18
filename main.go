@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	port := goDotEnvVariable("PORT")
+	// port := goDotEnvVariable("PORT")
 
 	app := fiber.New()
 
@@ -19,7 +19,7 @@ func main() {
 		return c.SendString("Hello, World!")
 	})
 
-	log.Fatal(app.Listen(":" + port))
+	log.Fatal(app.Listen(":4040"))
 }
 
 func goDotEnvVariable(key string) string {
