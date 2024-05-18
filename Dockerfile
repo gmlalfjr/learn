@@ -11,6 +11,6 @@ COPY . .
 # Compile aplikasi Go
 RUN go build -o main ./main.go
 
-EXPOSE 8080
+EXPOSE 4040
 
 CMD ["./main"]
